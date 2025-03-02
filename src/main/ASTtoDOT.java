@@ -4,6 +4,7 @@ import org.eclipse.jdt.core.dom.ASTNode;
 
 import structure.MyASTNode;
 import structure.MyMethodNode;
+import static org.apache.commons.lang.StringEscapeUtils.escapeHtml;
 
 public class ASTtoDOT {
 
@@ -51,7 +52,7 @@ public class ASTtoDOT {
 			nodeType = "<font color=\"red\">"+nodeType+"</font>";
 		}
 
-		return "<b>"+nodeType+"</b><br/>"+(contentString.length()>15 ? contentString.substring(0,15)+" ... "+contentString.substring(contentString.length()-2) : contentString);
+		return "<b>"+nodeType+"</b><br/>"+(contentString.length()>15 ? escapeHtml(contentString.substring(0,15))+" ... "+escapeHtml(contentString.substring(contentString.length()-2)) : escapeHtml(contentString));
 
 	}
 }
